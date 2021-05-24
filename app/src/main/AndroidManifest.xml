@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".mypageTab.MypageTab"></activity>
         <activity android:name=".chattingTab.ChattingTab" />
-        <activity android:name=".writingTab.WritingTab" />
+        <activity android:name=".WritingActivity" />
         <activity android:name=".categoryTab.CategoryTab" />
         <activity android:name=".homeTab.HomeTab" />
         <activity android:name=".MainActivity">

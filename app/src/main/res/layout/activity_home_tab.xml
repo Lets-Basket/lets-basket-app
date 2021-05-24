@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".homeTab.HomeTab">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/dealOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/ic_content_new"
+        app:backgroundTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

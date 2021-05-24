@@ -1,21 +1,14 @@
 package com.example.letsbasket
 
-import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.example.letsbasket.categoryTab.CategoryTab
 import com.example.letsbasket.chattingTab.ChattingTab
-import com.example.letsbasket.writingTab.WritingTab
 import com.example.letsbasket.homeTab.HomeTab
 import com.example.letsbasket.mypageTab.MypageTab
 import kotlinx.android.synthetic.main.activity_main.*
@@ -49,10 +42,6 @@ class MainActivity : AppCompatActivity() {
                 tabView.tab_logo.setImageResource(android.R.drawable.ic_menu_send)
                 return tabView
             }
-            "글쓰기" -> {
-                tabView.tab_logo.setImageResource(android.R.drawable.ic_menu_add)
-                return tabView
-            }
             "카테고리" -> {
                 tabView.tab_logo.setImageResource(android.R.drawable.ic_dialog_dialer)
                 return tabView
@@ -68,13 +57,10 @@ class MainActivity : AppCompatActivity() {
     }
     private fun initViewPager(){
         val mypageFragment = MypageTab()
-        mypageFragment.name = "마이 바스켓"
+        mypageFragment.name = "마이페이지"
 
         val chattingFragment = ChattingTab()
         chattingFragment.name = "채팅"
-
-        val writingFragment = WritingTab()
-        writingFragment.name = "글쓰기"
 
         val categoryFragment = CategoryTab()
         categoryFragment.name = "카테고리"
@@ -87,7 +73,6 @@ class MainActivity : AppCompatActivity() {
         val adapter = PageAdapter(supportFragmentManager) // PageAdapter 생성
         adapter.addItems(homeFragment)
         adapter.addItems(categoryFragment)
-        adapter.addItems(writingFragment)
         adapter.addItems(chattingFragment)
         adapter.addItems(mypageFragment)
 
@@ -98,9 +83,14 @@ class MainActivity : AppCompatActivity() {
 
         main_tablayout.getTabAt(0)?.setCustomView(createView("홈"))
         main_tablayout.getTabAt(1)?.setCustomView(createView("카테고리"))
-        main_tablayout.getTabAt(2)?.setCustomView(createView("글쓰기"))
-        main_tablayout.getTabAt(3)?.setCustomView(createView("채팅"))
-        main_tablayout.getTabAt(4)?.setCustomView(createView("마이 바스켓"))
+        main_tablayout.getTabAt(2)?.setCustomView(createView("채팅"))
+        main_tablayout.getTabAt(3)?.setCustomView(createView("마이 바스켓"))
+
+//        main_tablayout.getTabAt(2)?.setOnClickListener {
+//            val intent = Intent(this.activity, MemoAddActivity::class.java)
+//            intent.putExtra(MemoConstant.MEMO_REQUEST_TYPE_KEY, MemoConstant.MEMO_ADD_REQUEST_TYPE)
+//            activity?.startActivity(intent)
+//        }
 
 //        main_tablayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
 //            override fun onTabReselected(p0: TabLayout.Tab?) {}
