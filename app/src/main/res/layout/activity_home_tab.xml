@@ -6,6 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".homeTab.HomeTab">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/dogPhotoImg"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ex1" />
+
+
+        <TextView
+            android:id="@+id/dogBreedTv"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="크로와상 3+1" />
+
+
+        <TextView
+            android:id="@+id/dogGenderTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            tools:text="5,000원" />
+
+    </LinearLayout>
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/dealOpen"
         android:layout_width="wrap_content"

@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.letsbasket.categoryTab.CategoryTab
+import com.example.letsbasket.chattingTab.ChatRoomFragment
 import com.example.letsbasket.chattingTab.ChattingTab
 import com.example.letsbasket.homeTab.HomeTab
 import com.example.letsbasket.mypageTab.MypageTab
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 return tabView
             }
             "홈" -> {
-                tabView.tab_logo.setImageResource(android.R.drawable.ic_menu_preferences)
+                tabView.tab_logo.setImageResource(android.R.drawable.ic_input_get)
                 return tabView
             }
             else -> {
@@ -59,8 +60,8 @@ class MainActivity : AppCompatActivity() {
         val mypageFragment = MypageTab()
         mypageFragment.name = "마이페이지"
 
-        val chattingFragment = ChattingTab()
-        chattingFragment.name = "채팅"
+        val chattingFragment = ChatRoomFragment()
+        //chattingFragment.name = "채팅"
 
         val categoryFragment = CategoryTab()
         categoryFragment.name = "카테고리"
