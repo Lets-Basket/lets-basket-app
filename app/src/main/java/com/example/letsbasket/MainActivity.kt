@@ -1,11 +1,19 @@
 package com.example.letsbasket
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 import com.example.letsbasket.categoryTab.CategoryTab
 import com.example.letsbasket.chattingTab.ChatRoomFragment
@@ -27,6 +35,55 @@ class MainActivity : AppCompatActivity() {
         mContext = applicationContext
         initViewPager() // 뷰페이저와 어댑터 장착
 
+
+        val lm = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+            val isGPSEnabled: Boolean = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
+            val isNetworkEnabled: Boolean = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+
+
+
+            //매니페스트에 권한이 추가되어 있다해도 여기서 다시 한번 확인해야함
+            if (Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 0)
+            } else {
+                var getLongitude : Double? = null
+                var getLatitude : Double? = null
+
+                when { //프로바이더 제공자 활성화 여부 체크
+
+                    isNetworkEnabled -> {
+                        val location =
+                            lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER) //인터넷기반으로 위치를 찾음
+                        getLongitude = location?.longitude!!
+                        getLatitude = location.latitude
+                        Log.d("CheckCurrentLocation", "현재 내 위치 값: $getLongitude, $getLatitude")
+                    }
+                    isGPSEnabled -> {
+                        val location =
+                            lm.getLastKnownLocation(LocationManager.GPS_PROVIDER) //GPS 기반으로 위치를 찾음
+                        getLongitude = location?.longitude!!
+                        getLatitude = location.latitude
+                        Log.d("CheckCurrentLocation", "현재 내 위치 값: $getLongitude, $getLatitude")
+                    }
+                    else -> {
+                        Log.d("CheckCurrentLocation", "현재 내 위치 값: $getLongitude, $getLatitude")
+                    }
+                }
+                //몇초 간격과 몇미터를 이동했을시에 호출되는 부분 - 주기적으로 위치 업데이트를 하고 싶다면 사용
+                // ****주기적 업데이트를 사용하다가 사용안할시에는 반드시 해제 필요****
+                /*lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                        1000, //몇초
+                        1F,   //몇미터
+                        gpsLocationListener)
+                lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                        1000,
+                        1F,
+                        gpsLocationListener)
+                //해제부분. 상황에 맞게 잘 구현하자
+                lm.removeUpdates(gpsLocationListener)*/
+            }
     }
 
 
