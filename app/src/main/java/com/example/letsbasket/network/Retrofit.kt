@@ -1,16 +1,19 @@
-//package com.example.letsbasket.network
-//
-//class Retrofit {
-//    private val BASE_URL = "http://192.249.19.243:0480/"
-//    private var retrofit: Retrofit? = null
-//
-//    fun getRetrofit(): Retrofit? {
-//        if (retrofit == null) {
-//            retrofit = Builder()
-//                .baseUrl(BASE_URL)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build()
-//        }
-//        return retrofit
-//    }
-//}
+package com.example.letsbasket.network
+
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+
+
+object RetrofitBuilder {
+    var api: ServiceApi
+
+    init {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://3.36.105.242")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        api = retrofit.create(ServiceApi::class.java)
+    }
+}
