@@ -8,12 +8,13 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.letsbasket.R
 import com.example.letsbasket.homeTab.HomeTab
+import com.example.letsbasket.manageToken.App
+import com.example.letsbasket.manageToken.Prefs
 import com.example.letsbasket.network.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.net.URL
-import java.net.URLConnection
+
 
 class LoginActivity : Activity() {
 
@@ -43,8 +44,13 @@ class LoginActivity : Activity() {
                 ) {
                     if(response.isSuccessful) {
                         Log.d("LoginTest", "연결성공")
-                        var a: LoginResponse = response.body()!!
-                        Log.d("LoginTest", a.token.toString())
+                        var loginResponse: LoginResponse = response.body()!!
+                        Log.d("LoginTest", loginResponse.token.toString())
+
+                        // 토큰 저장
+                        App.prefs.tokenVal = loginResponse.token.toString()
+                        // 토큰 가져오기
+                        // val token = App.prefs.tokenVal
                     }
                 }
 
