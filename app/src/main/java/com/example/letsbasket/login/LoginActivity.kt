@@ -12,6 +12,8 @@ import com.example.letsbasket.network.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.net.URL
+import java.net.URLConnection
 
 class LoginActivity : Activity() {
 
@@ -40,14 +42,14 @@ class LoginActivity : Activity() {
                     response: Response<LoginResponse>
                 ) {
                     if(response.isSuccessful) {
-                        Log.d("WritingTest", "연결성공")
+                        Log.d("LoginTest", "연결성공")
                         var a: LoginResponse = response.body()!!
-                        Log.d("WritingTest", a.token.toString())
+                        Log.d("LoginTest", a.token.toString())
                     }
                 }
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    Log.d("WritingTest", "실패$t")
+                    Log.d("LoginTest", "실패$t")
                 }
 
             })
