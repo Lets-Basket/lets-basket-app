@@ -1,8 +1,9 @@
 package com.example.letsbasket.manageToken
 
 import android.app.Application
+import androidx.multidex.MultiDexApplication
 
-class App : Application() {
+class App : MultiDexApplication() {
     companion object{
         lateinit var prefs:Prefs
     }
