@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import com.example.letsbasket.MainActivity
 import com.example.letsbasket.R
-import com.example.letsbasket.homeTab.HomeTab
 import com.example.letsbasket.manageToken.App
-import com.example.letsbasket.manageToken.Prefs
 import com.example.letsbasket.network.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,7 +29,7 @@ class LoginActivity : Activity() {
 
 
         btnLogin.setOnClickListener {
-            val intent = Intent(this, HomeTab::class.java)
+            val intent = Intent(this, MainActivity::class.java)
 
             data.id = editId?.text.toString()
             data.pw =  editPw?.text.toString()
@@ -50,6 +49,8 @@ class LoginActivity : Activity() {
                         App.prefs.tokenVal = loginResponse.token.toString()
                         // 토큰 가져오기
                         // val token = App.prefs.tokenVal
+
+                        startActivity(intent)
                     }
                 }
 
