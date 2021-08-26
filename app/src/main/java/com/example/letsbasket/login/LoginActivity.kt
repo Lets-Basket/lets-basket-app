@@ -17,7 +17,6 @@ import retrofit2.Response
 
 
 class LoginActivity : Activity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -59,7 +58,6 @@ class LoginActivity : Activity() {
                 }
 
             })
-            intent.putExtra("post", "list")
 
         }
     }
