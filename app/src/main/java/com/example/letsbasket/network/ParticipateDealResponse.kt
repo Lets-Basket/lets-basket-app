@@ -6,6 +6,6 @@ data class ParticipateDealResponse(
     var users: Array<String>,
     @SerializedName("_id") var postID: String,
     var room_id: String,
-    var user_number: Int,
+    var user_number: Int
 
 )
