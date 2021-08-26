@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/itemImg"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/default_img" />
+
+    <LinearLayout
+        android:id="@+id/userInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemImg"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="5dp"
+            android:padding="5dp"
+            android:src="@drawable/default_profile" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/userName"
+                tools:text="Nickname"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="parent"
+
+            android:padding="5dp"
+                android:textSize="15sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/userDong"
+                tools:text="OO동"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                android:textSize="15sp"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintTop_toBottomOf="@id/userInfo"
+        android:background="#BDBDBD"/>
+
+    <TextView
+        android:id="@+id/postTitle"
+        tools:text="Title"
+        app:layout_constraintTop_toBottomOf="@id/border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:paddingStart="5dp"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/category"
+        tools:text="category"
+        app:layout_constraintTop_toBottomOf="@id/postTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/price"
+        tools:text="$$$$원"
+        app:layout_constraintTop_toBottomOf="@id/postTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/description"
+        tools:text="item description\nitem description\nitem description\nitem description\nitem description"
+        app:layout_constraintTop_toBottomOf="@id/category"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="13dp"
+        android:paddingHorizontal="10dp"
+        android:textSize="16sp"
+        android:textColor="#000000"/>
+
+
+    <View
+        android:id="@+id/border2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        android:background="#BDBDBD"/>
+
+    <ImageButton
+        android:id="@+id/likeBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/border2"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:scaleType="centerCrop"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:text="♡"
+        android:textStyle="bold"
+        android:textColor="#ff0000"
+        android:background="#ffffff"
+        />
+
+
+    <Button
+        android:id="@+id/dealBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/border2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:text="딜 참여"
+        android:textColor="#ffffff"
+        android:background="#58ACFA"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

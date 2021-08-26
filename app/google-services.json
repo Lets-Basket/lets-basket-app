@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "386994054468",
+    "project_id": "letsbasket-1a1ef",
+    "storage_bucket": "letsbasket-1a1ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386994054468:android:ad85f0e9b6364c3bc02311",
+        "android_client_info": {
+          "package_name": "com.graduation.letsbasket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386994054468-ltrg4tbt9pnte0ees5k3id8gc564mtka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpq5tL6lcHHoDvz7J6rCoqPoyGLzI9jEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386994054468-ltrg4tbt9pnte0ees5k3id8gc564mtka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
