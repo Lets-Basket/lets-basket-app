@@ -29,6 +29,7 @@ class ItemActivity : AppCompatActivity() {
         val callGetItem = RetrofitClass.apiPostDetail.getItem(auth, postID)
         val callAddLike = RetrofitClass.apiPostDetail.addLike(auth, postID_json)
         val callDeleteLike = RetrofitClass.apiPostDetail.deleteLike(auth, postID)
+        val callParticipateDeal = RetrofitClass.apiPostDetail.addRoom(auth, postID_json)
 
         // 게시글(상품) 정보 가져오기
         callGetItem.enqueue(object : Callback<SingleItem> {
@@ -106,6 +107,30 @@ class ItemActivity : AppCompatActivity() {
 
 
                         }
+                    }
+
+                    // 딜 참여
+                    dealBtn.setOnClickListener{
+                        callParticipateDeal.enqueue(object : Callback<ParticipateDealResponse> {
+                            override fun onResponse(
+                                call: Call<ParticipateDealResponse>,
+                                response: Response<ParticipateDealResponse>
+                            ) {
+                                if (response.isSuccessful) {
+                                    Toast.makeText(
+                                        this@ItemActivity,
+                                        "딜에 참여하였습니다.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    Log.d("결과", "성공 : ${response.body()}")
+                                }
+                            }
+
+                            override fun onFailure(call: Call<ParticipateDealResponse>, t: Throwable) {
+                                // 실패 처리
+                                Log.d("결과:", "실패 : $t")
+                            }
+                        })
                     }
 
                 } else { // code == 400

@@ -33,8 +33,7 @@ interface ItempostInterface {
     @POST("/api/posts/deal")
     fun addRoom(
         @Header("x-auth-token") auth: String,
-        @Body postID: IPostRequest): Call<LikeResponse>
-    )
+        @Body postID: IPostRequest): Call<ParticipateDealResponse>
 
     
 }
