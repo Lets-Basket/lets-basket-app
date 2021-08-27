@@ -1,13 +1,10 @@
-package com.example.letsbasket.mypageTab
+package com.example.letsbasket.itemDetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.letsbasket.R
-import com.example.letsbasket.itemDetail.LikeResponse
-import com.example.letsbasket.itemDetail.IPostRequest
-import com.example.letsbasket.itemDetail.SingleItem
 import com.example.letsbasket.network.*
 import kotlinx.android.synthetic.main.activity_item_post.*
 import retrofit2.Call

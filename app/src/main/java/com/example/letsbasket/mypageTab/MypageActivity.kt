@@ -1,9 +1,11 @@
+/*
 package com.example.letsbasket.mypageTab
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.letsbasket.R
+import com.example.letsbasket.itemDetail.ItemActivity
 import kotlinx.android.synthetic.main.activity_button.*
 
 class MypageActivity : AppCompatActivity() {
@@ -17,4 +19,4 @@ class MypageActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-}
+}*/

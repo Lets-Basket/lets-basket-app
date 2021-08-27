@@ -19,7 +19,7 @@
             android:label="@string/title_activity_mypage"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-        <activity android:name=".mypageTab.ItemActivity" />
+        <activity android:name=".itemDetail.ItemActivity" />
         <activity android:name=".mypageTab.MypageTab" />
         <activity android:name=".chattingTab.ChattingTab" />
         <activity android:name=".WritingActivity" />

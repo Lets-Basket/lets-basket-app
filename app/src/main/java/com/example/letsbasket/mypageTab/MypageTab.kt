@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.letsbasket.R
-import com.example.letsbasket.WritingActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.activity_button.*
+import com.example.letsbasket.itemDetail.ItemActivity
 
 class MypageTab : FragmentTab() {
     override fun onCreateView(
@@ -17,8 +15,8 @@ class MypageTab : FragmentTab() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //val view =inflater.inflate(R.layout.activity_mypage_tab, container, false)
-        val view =inflater.inflate(R.layout.activity_item_post, container, false)
+        val view =inflater.inflate(R.layout.activity_mypage_tab, container, false)
+        //val view =inflater.inflate(R.layout.activity_item_post, container, false)
 
         val intent = Intent(getActivity(), ItemActivity::class.java)
         startActivity(intent)
