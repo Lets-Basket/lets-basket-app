@@ -37,9 +37,6 @@ class ItemActivity : AppCompatActivity() {
                 if (response.isSuccessful) { // <--> response.code == 200
                     // 성공 처리
 
-                    //ex)
-                    //Toast.makeText(this, "${response.body().student.size}", Toast.LENGTH_SHORT).show()
-
                     //Toast.makeText(this, "${response.body()?.data?.title}", Toast.LENGTH_SHORT).show()
                     //Log.d("결과", "성공 : ${response.raw()}")
                     Log.d("결과", "성공 : ${response.body()}")

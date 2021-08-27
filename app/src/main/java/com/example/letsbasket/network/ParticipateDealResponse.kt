@@ -1,7 +1,6 @@
 package com.example.letsbasket.network
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.Call
 
 data class ParticipateDealResponse(
     var users: Array<String>,

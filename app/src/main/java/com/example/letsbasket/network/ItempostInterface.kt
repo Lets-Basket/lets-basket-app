@@ -35,6 +35,5 @@ interface ItempostInterface {
         @Header("x-auth-token") auth: String,
         @Body postID: IPostRequest): Call<ParticipateDealResponse>
 
-    
 }
 
