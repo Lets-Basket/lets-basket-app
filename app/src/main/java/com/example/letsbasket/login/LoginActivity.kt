@@ -3,6 +3,7 @@ package com.example.letsbasket.login
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -26,6 +27,9 @@ class LoginActivity : Activity() {
         val btnLogin = findViewById<Button>(R.id.btn_login)
 
         var data = LoginData()
+
+        editId.text = Editable.Factory.getInstance().newEditable("choengha")
+        editPw.text = Editable.Factory.getInstance().newEditable("123456")
 
 
         btnLogin.setOnClickListener {

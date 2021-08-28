@@ -25,7 +25,6 @@ import java.util.*
 
 class HomeTab : FragmentTab() {
 
-
     var phoneAdapter: HomeRecycleAdapter =
         HomeRecycleAdapter()
     var recycleview: RecyclerView? = null
