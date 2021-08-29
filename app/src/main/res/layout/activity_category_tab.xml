@@ -98,6 +98,7 @@
             android:textSize="10sp"
             android:text="청소용품" />
         <Button
+            android:id="@+id/BtnCat15"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:textSize="10sp"

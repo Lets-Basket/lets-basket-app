@@ -12,17 +12,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="게시글 조회 test"
+        android:text="카테고리 조회 test"
         android:textSize="25sp"
         android:layout_margin="20dp"
         />
 
-    <Button
-        android:id="@+id/testBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="게시글 조회"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

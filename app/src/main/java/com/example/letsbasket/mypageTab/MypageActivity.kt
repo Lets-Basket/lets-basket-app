@@ -1,4 +1,4 @@
-/*
+
 package com.example.letsbasket.mypageTab
 
 import android.content.Intent
@@ -12,11 +12,7 @@ class MypageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_button)
+        setContentView(R.layout.activity_mypage)
 
-        val intent = Intent(this, ItemActivity::class.java)
-        testBtn.setOnClickListener{
-            startActivity(intent)
-        }
     }
-}*/
+}

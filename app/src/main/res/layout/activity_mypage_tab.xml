@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".memoTab.MemoAddActivity">
+    android:layout_height="match_parent">
+    <!--tools:context=".memoTab.MemoAddActivity"-->
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,190 +25,240 @@
             android:longClickable="false"
             android:textStyle="bold"
             android:textSize="17dp"
-            android:text="딜 오픈하기" />
+            android:text="마이페이지" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <ScrollView
+    <View
+        android:id="@+id/border"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:layout_height="1dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:background="#BDBDBD"/>
+
+    <LinearLayout
+        android:id="@+id/profile"
+        app:layout_constraintTop_toBottomOf="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:orientation="horizontal" >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:src="@drawable/default_profile" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            app:layout_constraintTop_toBottomOf="@+id/border"
+            android:layout_marginVertical="19dp"
+            android:layout_marginHorizontal="7dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/mypage_Nickname"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                tools:text="Nickname"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-                <Button
-                    android:id="@+id/addPhoto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="5dp"
-                    android:background="@android:color/transparent"
-                    android:text="사진 추가하기"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:hint="제목"
-                    android:inputType="textPersonName"
-                    android:padding="10dp" />
-
-                <EditText
-                    android:id="@+id/category"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:hint="카테고리"
-                    android:inputType="textPersonName"
-                    android:padding="10dp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="101dp">
-
-                    <EditText
-                        android:id="@+id/price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginRight="15dp"
-                        android:ems="10"
-                        android:hint="가격"
-                        android:inputType="textPersonName"
-                        android:padding="10dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="/" />
-
-                    <EditText
-                        android:id="@+id/people"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginRight="15dp"
-                        android:ems="10"
-                        android:hint="인원"
-                        android:inputType="textPersonName"
-                        android:padding="10dp" />
-
-                </LinearLayout>
-
-
-
-
-                <EditText
-                    android:id="@+id/url"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:hint="URL"
-                    android:inputType="textPersonName"
-                    android:padding="10dp" />
-
-
-
-                <EditText
-                    android:id="@+id/deadline"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:hint="마감날짜"
-                    android:inputType="textPersonName"
-                    android:padding="10dp" />
-
-                <EditText
-                    android:id="@+id/neighborhood"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:hint="게시글이 보여질 동네 설정"
-                    android:inputType="textPersonName"
-                    android:padding="10dp" />
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/mypage_Dong"
                 android:layout_width="match_parent"
-                android:layout_height="597dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                tools:text="Dong"
+                android:textSize="15dp" />
 
-                <EditText
-                    android:id="@+id/memoAddTextContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="50dp"
-                    android:bufferType="spannable"
-                    android:gravity="start"
-                    android:hint="내용"
-                    android:overScrollMode="always"
-                    android:padding="10dp"
-                    android:scrollbarStyle="insideInset"
-                    android:scrollbars="vertical" />
-            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
 
-    <Button
-        android:id="@+id/memoAddFinish"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+
+    <View
+        android:id="@+id/border2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintTop_toBottomOf="@id/profile"
+        android:background="#BDBDBD"/>
+
+    <LinearLayout
+        android:id="@+id/mypage_History"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/border2"
+        android:layout_marginHorizontal="10dp"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/mypage_Openlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
+                android:src="@drawable/openlist"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="오픈 내역"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mypage_ParticipateList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
+                android:src="@drawable/basket"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="참여 내역"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mypage_LikeList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
+                android:src="@drawable/heart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="좋아요"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/mypage_History"
+        android:background="#BDBDBD"/>
+
+    <TextView
+        android:id="@+id/mypage_Recentview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_History"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="15dp"
+        android:padding="10dp"
+        android:text="최근 본 딜"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/border3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/mypage_Recentview"
+        android:background="#BDBDBD"/>
+
+    <TextView
+        android:id="@+id/mypage_Announce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/border3"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="15dp"
+        android:padding="10dp"
+        android:text="공지사항"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/mypage_FAQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_Announce"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="15dp"
+        android:padding="10dp"
+        android:text="FAQ"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/mypage_Suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_FAQ"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="15dp"
+        android:padding="10dp"
+        android:text="앱 문의 / 건의"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/border4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/mypage_Suggestion"
+        android:background="#BDBDBD"/>
+
+    <TextView
+        android:id="@+id/mypage_Setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/border4"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="15dp"
+        android:padding="10dp"
+        android:text="앱 설정"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:id="@+id/memoAddFinish"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:scaleType="centerCrop"
         android:layout_centerInParent="true"
-        android:layout_marginTop="5dp"
+        android:layout_margin="20dp"
         android:background="@android:color/transparent"
-        android:text="완료"
+        android:src="@drawable/bell"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

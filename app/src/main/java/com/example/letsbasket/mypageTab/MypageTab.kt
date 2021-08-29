@@ -16,9 +16,9 @@ class MypageTab : FragmentTab() {
         savedInstanceState: Bundle?
     ): View? {
         val view =inflater.inflate(R.layout.activity_mypage_tab, container, false)
-        //val view =inflater.inflate(R.layout.activity_item_post, container, false)
 
-        val intent = Intent(getActivity(), ItemActivity::class.java)
+
+        val intent = Intent(getActivity(), MypageActivity::class.java)
         startActivity(intent)
 
 

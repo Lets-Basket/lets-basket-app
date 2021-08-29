@@ -7,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.letsbasket.R
-import com.example.letsbasket.WritingActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_category_tab.*
 
 class CategoryTab : FragmentTab() {
     override fun onCreateView(
@@ -18,6 +17,8 @@ class CategoryTab : FragmentTab() {
     ): View? {
         val view =inflater.inflate(R.layout.activity_category_tab, container, false)
 
+//        val intent = Intent(getActivity(), ItemActivity::class.java)
+//        startActivity(intent)
 
         return view
     }
