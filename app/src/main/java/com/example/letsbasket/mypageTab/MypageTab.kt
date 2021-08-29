@@ -18,10 +18,6 @@ class MypageTab : FragmentTab() {
         val view =inflater.inflate(R.layout.activity_mypage_tab, container, false)
 
 
-        val intent = Intent(getActivity(), MypageActivity::class.java)
-        startActivity(intent)
-
-
         return view
     }
 }
