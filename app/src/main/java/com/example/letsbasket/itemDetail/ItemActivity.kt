@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.letsbasket.R
 import com.example.letsbasket.network.*
 import kotlinx.android.synthetic.main.activity_item_post.*
@@ -19,8 +20,8 @@ class ItemActivity : AppCompatActivity() {
 
         val auth =
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2hvZW5naGEifSwiaWF0IjoxNjI5OTAwMzMxLCJleHAiOjM2MDAxNjI5OTAwMzMxfQ.SE2FTfk8NeJt7UAzTM1pVuH1fdapxVCxxxxRcizY2QE"
-        val postID = "612640f4c16520735cd7b041"
-        //val postID = "610bff760684e00fb8cec43f"
+        val postID = intent.getStringExtra("postID").toString()
+        //val postID = "612640f4c16520735cd7b041"
         val postID_json: IPostRequest = IPostRequest(postID)
 
         val callGetItem = RetrofitBuilder.api.getItem(auth, postID)
@@ -34,14 +35,15 @@ class ItemActivity : AppCompatActivity() {
                 if (response.isSuccessful) { // <--> response.code == 200
                     // 성공 처리
 
-                    //Toast.makeText(this, "${response.body()?.data?.title}", Toast.LENGTH_SHORT).show()
-                    //Log.d("결과", "성공 : ${response.raw()}")
                     Log.d("결과", "성공 : ${response.body()}")
-                    postTitle.text = response.body()?.data?.title
-                    userName.text = response.body()?.data?.openerName.toString()
-                    userDong.text = response.body()?.data?.dong.toString()
-                    price.text = response.body()?.data?.price.toString() + "원"
-                    description.text = response.body()?.data?.desc.toString()
+                    val data = response.body()?.data!!
+                    postTitle.text = data.title
+                    userName.text = data.openerName
+                    userDong.text = data.dong
+                    price.text = data.price.toString() + "원"
+                    description.text = data.desc
+                    Glide.with(this@ItemActivity).load(data.img).error(R.drawable.default_img).into(itemImg)
+
                     var isLike = response.body()?.like
 
                     if (isLike == false) {
