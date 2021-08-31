@@ -17,6 +17,17 @@
         android:layout_margin="20dp"
         />
 
+    <TextView
+        android:id="@+id/responseTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt"
+        android:text=""
+        android:textSize="25sp"
+        android:layout_margin="20dp"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

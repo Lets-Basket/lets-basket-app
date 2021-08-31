@@ -19,11 +19,13 @@
         android:textSize="10sp"
         android:text="과일/견과" />
     <Button
+        android:id="@+id/btnCat2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:textSize="10sp"
         android:text="수산/해산물" />
     <Button
+        android:id="@+id/btnCat3"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:textSize="10sp"

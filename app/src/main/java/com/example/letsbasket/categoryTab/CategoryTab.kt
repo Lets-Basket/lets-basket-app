@@ -22,9 +22,24 @@ class CategoryTab : FragmentTab() {
         val view =inflater.inflate(R.layout.activity_category_tab, container, false)
 
         val btn1 = view.findViewById<Button>(R.id.btnCat1)
+        val btn2 = view.findViewById<Button>(R.id.btnCat2)
+        val btn3 = view.findViewById<Button>(R.id.btnCat3)
 
         btn1.setOnClickListener {
             val intent = Intent(getActivity(), CategoryActivity::class.java)
+            intent.putExtra("catNum", 1)
+            startActivity(intent)
+        }
+
+        btn2.setOnClickListener {
+            val intent = Intent(getActivity(), CategoryActivity::class.java)
+            intent.putExtra("catNum", 2)
+            startActivity(intent)
+        }
+
+        btn3.setOnClickListener {
+            val intent = Intent(getActivity(), CategoryActivity::class.java)
+            intent.putExtra("catNum", 3)
             startActivity(intent)
         }
 

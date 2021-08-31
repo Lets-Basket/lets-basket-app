@@ -5,17 +5,28 @@ import android.os.Bundle
 import android.util.Log
 import com.example.letsbasket.R
 import com.example.letsbasket.network.RetrofitBuilder
+import kotlinx.android.synthetic.main.activity_button.*
+import kotlinx.android.synthetic.main.activity_item_list.*
+import org.json.JSONArray
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CategoryActivity : AppCompatActivity() {
+    // adapter 선언
+    lateinit var categoryAdapter: CategoryAdapter
+    val datas = mutableListOf<ItemsByCat>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_button)
+        setContentView(R.layout.activity_item_list)
 
         val auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2hvZW5naGEifSwiaWF0IjoxNjI5OTAwMzMxLCJleHAiOjM2MDAxNjI5OTAwMzMxfQ.SE2FTfk8NeJt7UAzTM1pVuH1fdapxVCxxxxRcizY2QE"
-        val categoryID = 3
+        //val categoryID = 3
+        val categoryID = intent.getIntExtra("catNum", 1)
         val callGetItemsByCat = RetrofitBuilder.api.getItemByCat(auth, categoryID)
 
         callGetItemsByCat.enqueue(object : Callback<List<ItemsByCat>> {
@@ -24,6 +35,12 @@ class CategoryActivity : AppCompatActivity() {
                     // 성공 처리
                     //Toast.makeText(this, "${response.body().student.size}", Toast.LENGTH_SHORT).show()
                     Log.d("결과", "성공 : ${response.body()}")
+
+
+                    val jsonString = response.body()!!
+                    initRecycler(jsonString)
+
+
                 } else { // code == 400
                     // 실패 처리
                     Log.d("결과", "뭔가 잘못됐어 : ${response.raw()}")
@@ -35,5 +52,21 @@ class CategoryActivity : AppCompatActivity() {
                 Log.d("결과:", "실패 : $t")
             }
         })
+
+
+    }
+
+
+
+    private fun initRecycler(e: List<ItemsByCat>){
+        val categoryAdapter = CategoryAdapter(this)
+        itemList.adapter = categoryAdapter
+
+        datas.apply{
+            addAll(e)
+
+            categoryAdapter.datas = datas
+            categoryAdapter.notifyDataSetChanged()
+        }
     }
 }
