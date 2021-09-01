@@ -24,10 +24,10 @@ class ItemActivity : AppCompatActivity() {
         //val postID = "612640f4c16520735cd7b041"
         val postID_json: IPostRequest = IPostRequest(postID)
 
-        val callGetItem = RetrofitBuilder.api.getItem(auth, postID)
-        val callAddLike = RetrofitBuilder.api.addLike(auth, postID_json)
-        val callDeleteLike = RetrofitBuilder.api.deleteLike(auth, postID)
-        val callParticipateDeal = RetrofitBuilder.api.addRoom(auth, postID_json)
+        val callGetItem = RetrofitBuilder.api.getItem(postID)
+        val callAddLike = RetrofitBuilder.api.addLike(postID_json)
+        val callDeleteLike = RetrofitBuilder.api.deleteLike(postID)
+        val callParticipateDeal = RetrofitBuilder.api.addRoom(postID_json)
 
         // 게시글(상품) 정보 가져오기
         callGetItem.enqueue(object : Callback<SingleItem> {

@@ -24,10 +24,9 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_list)
 
-        val auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2hvZW5naGEifSwiaWF0IjoxNjI5OTAwMzMxLCJleHAiOjM2MDAxNjI5OTAwMzMxfQ.SE2FTfk8NeJt7UAzTM1pVuH1fdapxVCxxxxRcizY2QE"
         //val categoryID = 3
         val categoryID = intent.getIntExtra("catNum", 1)
-        val callGetItemsByCat = RetrofitBuilder.api.getItemByCat(auth, categoryID)
+        val callGetItemsByCat = RetrofitBuilder.api.getItemByCat(categoryID)
 
         callGetItemsByCat.enqueue(object : Callback<List<ItemsByCat>> {
             override fun onResponse(call: Call<List<ItemsByCat>>, response: Response<List<ItemsByCat>>) {
@@ -52,8 +51,6 @@ class CategoryActivity : AppCompatActivity() {
                 Log.d("결과:", "실패 : $t")
             }
         })
-
-
     }
 
 

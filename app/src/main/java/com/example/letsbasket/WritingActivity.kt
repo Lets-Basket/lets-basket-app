@@ -48,7 +48,7 @@ class WritingActivity : Activity() {
             data.desc = desc?.text.toString()
             data.img = "img"
 
-            RetrofitBuilder.api.makePost(token, data).enqueue(object : Callback<UploadResponse> {
+            RetrofitBuilder.api.makePost(data).enqueue(object : Callback<UploadResponse> {
                 override fun onResponse(
                     call: Call<UploadResponse>,
                     response: Response<UploadResponse>
