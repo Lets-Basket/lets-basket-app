@@ -17,11 +17,7 @@ class ItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_post)
 
-
-        val auth =
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2hvZW5naGEifSwiaWF0IjoxNjI5OTAwMzMxLCJleHAiOjM2MDAxNjI5OTAwMzMxfQ.SE2FTfk8NeJt7UAzTM1pVuH1fdapxVCxxxxRcizY2QE"
         val postID = intent.getStringExtra("postID").toString()
-        //val postID = "612640f4c16520735cd7b041"
         val postID_json: IPostRequest = IPostRequest(postID)
 
         val callGetItem = RetrofitBuilder.api.getItem(postID)

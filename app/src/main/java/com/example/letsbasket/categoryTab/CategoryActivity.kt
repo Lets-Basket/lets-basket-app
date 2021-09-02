@@ -57,8 +57,9 @@ class CategoryActivity : AppCompatActivity() {
 
     private fun initRecycler(e: List<ItemsByCat>){
         val categoryAdapter = CategoryAdapter(this)
+        Log.d("isNull", "${itemList}위아이ㅏ${itemList.adapter}")
         itemList.adapter = categoryAdapter
-
+        Log.d("isNull2", "${itemList}위아이ㅏ${itemList.adapter}")
         datas.apply{
             addAll(e)
 

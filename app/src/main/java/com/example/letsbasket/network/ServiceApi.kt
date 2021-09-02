@@ -41,4 +41,8 @@ interface ServiceApi {
     @GET("/api/posts/{category}")
     fun getItemByCat(@Path("category") categoryID: Int): Call<List<ItemsByCat>>
 
+    // 전체 게시글 조회
+    @GET("/api/posts")
+    fun getItem(): Call<List<ItemsByCat>>
+
 }
