@@ -43,6 +43,18 @@ interface ServiceApi {
 
     // 전체 게시글 조회
     @GET("/api/posts")
-    fun getItem(): Call<List<ItemsByCat>>
+    fun getAllItem(): Call<List<ItemsByCat>>
+
+    // 추천순으로 게시글 조회
+    @GET("/api/posts/recommend")
+    fun getRecItem(): Call<List<ItemsByCat>>
+
+    // 최신순으로 게시글 조회
+    @GET("/api/posts/new/{dong}")
+    fun getLatestItem(@Path("dong") dong: String): Call<List<ItemsByCat>>
+
+    // 마감순으로 게시글 조회
+    @GET("/api/posts/deadline/{dong}")
+    fun getDeadlineItem(@Path("dong") dong: String): Call<List<ItemsByCat>>
 
 }
