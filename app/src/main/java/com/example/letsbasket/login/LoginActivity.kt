@@ -25,6 +25,7 @@ class LoginActivity : Activity() {
         val editPw = findViewById<EditText>(R.id.edit_pw)
 
         val btnLogin = findViewById<Button>(R.id.btn_login)
+        val btnRegister = findViewById<Button>(R.id.btn_register)
 
         var data = LoginData()
 
@@ -64,6 +65,11 @@ class LoginActivity : Activity() {
 
             })
 
+        }
+
+        btnRegister.setOnClickListener{
+            val intent = Intent(this, OcrActivity::class.java)
+            startActivity(intent)
         }
     }
 }
