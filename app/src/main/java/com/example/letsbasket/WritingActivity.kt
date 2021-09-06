@@ -10,6 +10,7 @@ import android.widget.ImageView
 import com.example.letsbasket.R
 import org.w3c.dom.Text
 import com.example.letsbasket.homeTab.HomeTab
+import com.example.letsbasket.login.LoginActivity
 import com.example.letsbasket.network.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,6 +20,7 @@ class WritingActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing)
+
 
         val title = findViewById<EditText>(R.id.title)
         val category = findViewById<EditText>(R.id.category)
@@ -32,11 +34,9 @@ class WritingActivity : Activity() {
 
         val memoAddFinish = findViewById<Button>(R.id.memoAddFinish)
 
-        val token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2hvZW5naGEifSwiaWF0IjoxNjI3NjE0MDcwLCJleHAiOjM2MDAxNjI3NjE0MDcwfQ.dbKM2KQSf5Junis4my1oA-NR34B6tUMyTN8UCO1KjQ8"
         var data = UploadData();
 
         memoAddFinish.setOnClickListener {
-            val intent = Intent(this, HomeTab::class.java)
 
             data.title = title?.text.toString()
             data.category =  Integer.parseInt(category?.text.toString())
@@ -57,6 +57,8 @@ class WritingActivity : Activity() {
                         Log.d("WritingTest", "연결성공")
                         var a: UploadResponse = response.body()!!
                         Log.d("WritingTest", a.room_id.toString())
+
+                        finish()
                     }
                 }
 
@@ -65,11 +67,7 @@ class WritingActivity : Activity() {
                 }
 
             })
-            intent.putExtra("post", "list")
-
         }
-
-        val intent = intent
     }
 
 }
