@@ -7,6 +7,9 @@ import com.example.letsbasket.itemDetail.LikeResponse
 import com.example.letsbasket.itemDetail.SingleItem
 import com.example.letsbasket.login.LoginData
 import com.example.letsbasket.login.LoginResponse
+import com.example.letsbasket.login.RegisterRequest
+import com.example.letsbasket.login.RegisterResponse
+import com.example.letsbasket.mypageTab.MypageData
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -57,4 +60,7 @@ interface ServiceApi {
     @GET("/api/posts/deadline/{dong}")
     fun getDeadlineItem(@Path("dong") dong: String): Call<List<ItemsByCat>>
 
+    // 회원가입
+    @POST("/api/users")
+    fun register(@Body RData: RegisterRequest): Call<RegisterResponse>
 }

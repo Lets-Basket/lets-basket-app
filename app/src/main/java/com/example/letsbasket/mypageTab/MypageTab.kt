@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.letsbasket.R
-import com.example.letsbasket.itemDetail.ItemActivity
 
 class MypageTab : FragmentTab() {
     override fun onCreateView(
@@ -16,7 +15,6 @@ class MypageTab : FragmentTab() {
         savedInstanceState: Bundle?
     ): View? {
         val view =inflater.inflate(R.layout.activity_mypage_tab, container, false)
-
 
         return view
     }
