@@ -10,14 +10,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 import com.example.letsbasket.categoryTab.CategoryTab
 import com.example.letsbasket.chattingTab.ChatRoomFragment
-import com.example.letsbasket.chattingTab.ChattingTab
 import com.example.letsbasket.homeTab.HomeTab
 import com.example.letsbasket.mypageTab.MypageTab
 import kotlinx.android.synthetic.main.activity_main.*
@@ -93,19 +91,19 @@ class MainActivity : AppCompatActivity() {
         tabView.tab_text.text = tabName
         when (tabName) {
             "마이 바스켓" -> {
-                tabView.tab_logo.setImageResource(android.R.drawable.ic_menu_help)
+                tabView.tab_logo.setImageResource(R.drawable.user)
                 return tabView
             }
             "채팅" -> {
-                tabView.tab_logo.setImageResource(android.R.drawable.ic_menu_send)
+                tabView.tab_logo.setImageResource(R.drawable.chat)
                 return tabView
             }
             "카테고리" -> {
-                tabView.tab_logo.setImageResource(android.R.drawable.ic_dialog_dialer)
+                tabView.tab_logo.setImageResource(R.drawable.category)
                 return tabView
             }
             "홈" -> {
-                tabView.tab_logo.setImageResource(android.R.drawable.ic_input_get)
+                tabView.tab_logo.setImageResource(R.drawable.home)
                 return tabView
             }
             else -> {

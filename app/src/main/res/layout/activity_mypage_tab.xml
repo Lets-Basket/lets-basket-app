@@ -66,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Nickname"
+                android:text="성청하"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
 
@@ -74,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:text="청파동"
                 tools:text="Dong"
                 android:textSize="15dp" />
 
