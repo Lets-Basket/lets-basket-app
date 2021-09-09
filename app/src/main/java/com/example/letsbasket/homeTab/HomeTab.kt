@@ -180,8 +180,6 @@ class HomeTab : FragmentTab() {
         return view
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//    }
+
 
 }

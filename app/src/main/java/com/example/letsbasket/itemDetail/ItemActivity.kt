@@ -1,11 +1,14 @@
 package com.example.letsbasket.itemDetail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.letsbasket.MainActivity
 import com.example.letsbasket.R
+import com.example.letsbasket.categoryTab.CategoryActivity
 import com.example.letsbasket.network.*
 import kotlinx.android.synthetic.main.activity_item_post.*
 import retrofit2.Call
@@ -115,6 +118,11 @@ class ItemActivity : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     Log.d("결과", "성공 : ${response.body()}")
+
+                                    val intent = Intent(this@ItemActivity, MainActivity::class.java)
+                                    intent.putExtra("tabNum", 2)
+                                    startActivity(intent)
+                                    finish()
                                 }
                             }
 

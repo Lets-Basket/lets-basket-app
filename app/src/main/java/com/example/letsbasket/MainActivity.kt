@@ -35,9 +35,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //checkPermission()
+        val tabNum = intent.getIntExtra("tabNum", 0)
 
         mContext = applicationContext
-        initViewPager() // 뷰페이저와 어댑터 장착
+        initViewPager(tabNum) // 뷰페이저와 어댑터 장착
+
+
 
 
         val lm = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -117,7 +120,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    private fun initViewPager(){
+    private fun initViewPager(tabNum: Int){
         val mypageFragment = MypageTab()
         mypageFragment.name = "마이페이지"
 
@@ -140,6 +143,7 @@ class MainActivity : AppCompatActivity() {
 
 
         main_viewPager.adapter = adapter // 뷰페이저에 adapter 장착
+        main_viewPager.setCurrentItem(tabNum)
         main_tablayout.setupWithViewPager(main_viewPager) // 탭레이아웃과 뷰페이저를 연동
 
 
@@ -171,6 +175,15 @@ class MainActivity : AppCompatActivity() {
         for(fragment in supportFragmentManager.fragments){
             fragment.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val tabNum = intent.getIntExtra("tabNum", 0)
+
+        mContext = applicationContext
+        initViewPager(tabNum) // 뷰페이저와 어댑터 장착
     }
 
 //    fun checkPermission() {
