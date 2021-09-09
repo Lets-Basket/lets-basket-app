@@ -17,6 +17,7 @@
         android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="17cf74f2b688aa655d02b3cb974df324"/>
         <activity android:name=".WritingActivity" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>
@@ -31,6 +32,8 @@
         <activity android:name=".itemDetail.ItemActivity" />
         <activity android:name=".mypageTab.MypageActivity"/>
         <activity android:name=".categoryTab.CategoryActivity"/>
+        <activity android:name=".MapActivity"/>
+        <activity android:name=".chattingTab.ChattingMsgActivity"/>
 
     </application>
 
