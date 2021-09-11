@@ -1,10 +1,8 @@
 package com.example.letsbasket.chattingTab;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.letsbasket.R;
-import com.example.letsbasket.chattingTab.placeholder.PlaceholderContent;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,7 +40,7 @@ public class ChatMsgFragment extends Fragment implements View.OnClickListener {
 
     // 채팅 내용을 뿌려줄 RecyclerView 와 Adapter
     RecyclerView rv;
-    ChatAdapter mAdapter;
+    ChattingMsgAdapter mAdapter;
 
     // 채팅 방 이름
     String chatroom = "";
@@ -83,7 +80,7 @@ public class ChatMsgFragment extends Fragment implements View.OnClickListener {
 
         // ChatRoomFragment 에서 받는 채팅방 이름
         chatroom = getArguments().getString("chatroom");
-        mAdapter = new ChatAdapter(msgList);
+        mAdapter = new ChattingMsgAdapter(msgList);
 
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.setAdapter(mAdapter);
@@ -104,7 +101,7 @@ public class ChatMsgFragment extends Fragment implements View.OnClickListener {
                 msgList.add(chatMsgVO);
 
                 // 채팅 메시지 배열에 담고 RecyclerView 다시 그리기
-                mAdapter = new ChatAdapter(msgList);
+                mAdapter = new ChattingMsgAdapter(msgList);
                 rv.setAdapter(mAdapter);
                 rv.scrollToPosition(msgList.size()-1);
                 Log.d(TAG, msgList.size()+"");

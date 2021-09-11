@@ -18,11 +18,11 @@ import java.util.List;
  * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
+public class ChattingMsgAdapter extends RecyclerView.Adapter<ChattingMsgAdapter.ViewHolder> {
 
     private final List<ChatMsgVO> mValues;
 
-    public ChatAdapter(List<ChatMsgVO> items) {
+    public ChattingMsgAdapter(List<ChatMsgVO> items) {
         mValues = items;
     }
 

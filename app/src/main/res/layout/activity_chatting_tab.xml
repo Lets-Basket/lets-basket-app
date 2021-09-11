@@ -7,30 +7,16 @@
     android:layout_height="match_parent"
     >
 
-    <EditText
-        android:id="@+id/chatroom_et"
-        android:layout_width="0dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatItemList"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:padding="8dp"
-        android:background="@drawable/bg_speech_bubble"
-        android:hint="채팅방 이름"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:listitem="@layout/chatting_item"
+        tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/enter_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="입장하기"
-        app:layout_constraintEnd_toEndOf="@+id/chatroom_et"
-        app:layout_constraintStart_toStartOf="@+id/chatroom_et"
-        app:layout_constraintTop_toBottomOf="@+id/chatroom_et" />
 </androidx.constraintlayout.widget.ConstraintLayout>

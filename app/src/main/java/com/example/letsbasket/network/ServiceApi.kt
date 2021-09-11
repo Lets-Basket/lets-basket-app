@@ -63,4 +63,8 @@ interface ServiceApi {
     // 회원가입
     @POST("/api/users")
     fun register(@Body RData: RegisterRequest): Call<RegisterResponse>
+
+    // 채팅방 리스트
+    @GET("/api/rooms")
+    fun getChatList(): Call<List<ItemsByCat>>
 }
