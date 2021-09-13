@@ -22,7 +22,7 @@ import retrofit2.Response
 
 class ChattingTab : FragmentTab() {
     lateinit var chattingAdapter: ChattingAdapter
-    val datas = mutableListOf<ItemsByCat>()
+    val datas = mutableListOf<ChatResponse>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,8 +31,8 @@ class ChattingTab : FragmentTab() {
     ): View? {
         val view =inflater.inflate(R.layout.activity_chatting_tab, container, false)
 
-        RetrofitBuilder.api.getChatList().enqueue(object : Callback<List<ItemsByCat>> {
-            override fun onResponse(call: Call<List<ItemsByCat>>, response: Response<List<ItemsByCat>>) {
+        RetrofitBuilder.api.getChatList().enqueue(object : Callback<List<ChatResponse>> {
+            override fun onResponse(call: Call<List<ChatResponse>>, response: Response<List<ChatResponse>>) {
                 if(response.isSuccessful()) { // <--> response.code == 200
                     Log.d("결과", "성공 : ${response.body()}")
 
@@ -53,7 +53,7 @@ class ChattingTab : FragmentTab() {
                 }
             }
 
-            override fun onFailure(call: Call<List<ItemsByCat>>, t: Throwable) { // code == 500
+            override fun onFailure(call: Call<List<ChatResponse>>, t: Throwable) { // code == 500
                 // 실패 처리
                 Log.d("결과:", "실패 : $t")
             }

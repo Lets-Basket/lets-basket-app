@@ -2,6 +2,7 @@ package com.example.letsbasket.network
 
 import com.example.letsbasket.*
 import com.example.letsbasket.categoryTab.ItemsByCat
+import com.example.letsbasket.chattingTab.ChatResponse
 import com.example.letsbasket.itemDetail.IPostRequest
 import com.example.letsbasket.itemDetail.LikeResponse
 import com.example.letsbasket.itemDetail.SingleItem
@@ -66,5 +67,5 @@ interface ServiceApi {
 
     // 채팅방 리스트
     @GET("/api/rooms")
-    fun getChatList(): Call<List<ItemsByCat>>
+    fun getChatList(): Call<List<ChatResponse>>
 }
