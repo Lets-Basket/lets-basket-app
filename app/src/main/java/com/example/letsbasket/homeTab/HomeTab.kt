@@ -49,6 +49,67 @@ class HomeTab : FragmentTab() {
         val deadlineBtn = view.findViewById<Button>(R.id.deadlineBtn)
 
 
+        RetrofitBuilder.api.getRecItem().enqueue(object : Callback<List<ItemsByCat>> {
+            override fun onResponse(call: Call<List<ItemsByCat>>, response: Response<List<ItemsByCat>>) {
+                if(response.isSuccessful()) { // <--> response.code == 200
+                    Log.d("결과", "성공 : ${response.body()}")
+                    Log.d("결과", "성공 : ${response.body()?.size}")
+
+                    if (response.body()?.size == 0) {
+                        RetrofitBuilder.api.getAllItem().enqueue(object : Callback<List<ItemsByCat>> {
+                            override fun onResponse(call: Call<List<ItemsByCat>>, response: Response<List<ItemsByCat>>) {
+                                if(response.isSuccessful()) { // <--> response.code == 200
+                                    Log.d("결과", "성공 : ${response.body()}")
+
+                                    val jsonString = response.body()!!
+                                    val categoryAdapter = CategoryAdapter(requireActivity())
+
+                                    itemList.adapter = categoryAdapter
+                                    datas.apply{
+                                        datas.clear();
+                                        addAll(jsonString)
+                                        categoryAdapter.datas = datas
+                                        categoryAdapter.notifyDataSetChanged()
+                                    }
+
+
+                                } else { // code == 400
+                                    Log.d("결과", "뭔가 잘못됐어 : ${response.raw()}")
+                                }
+                            }
+
+                            override fun onFailure(call: Call<List<ItemsByCat>>, t: Throwable) { // code == 500
+                                // 실패 처리
+                                Log.d("결과:", "실패 : $t")
+                            }
+                        })
+                    }
+
+                    val jsonString = response.body()!!
+                    val categoryAdapter = CategoryAdapter(requireActivity())
+
+                    itemList.adapter = categoryAdapter
+                    datas.apply{
+                        datas.clear();
+                        addAll(jsonString)
+                        categoryAdapter.datas = datas
+                        categoryAdapter.notifyDataSetChanged()
+                    }
+
+
+                } else { // code == 400
+                    Log.d("결과", "뭔가 잘못됐어 : ${response.raw()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<ItemsByCat>>, t: Throwable) { // code == 500
+                // 실패 처리
+                Log.d("결과:", "실패 : $t")
+            }
+        })
+
+
+
         allBtn.setOnClickListener {
             RetrofitBuilder.api.getAllItem().enqueue(object : Callback<List<ItemsByCat>> {
                 override fun onResponse(call: Call<List<ItemsByCat>>, response: Response<List<ItemsByCat>>) {
@@ -84,6 +145,37 @@ class HomeTab : FragmentTab() {
                 override fun onResponse(call: Call<List<ItemsByCat>>, response: Response<List<ItemsByCat>>) {
                     if(response.isSuccessful()) { // <--> response.code == 200
                         Log.d("결과", "성공 : ${response.body()}")
+                        Log.d("결과", "성공 : ${response.body()?.size}")
+
+                        if (response.body()?.size == 0) {
+                            RetrofitBuilder.api.getAllItem().enqueue(object : Callback<List<ItemsByCat>> {
+                                override fun onResponse(call: Call<List<ItemsByCat>>, response: Response<List<ItemsByCat>>) {
+                                    if(response.isSuccessful()) { // <--> response.code == 200
+                                        Log.d("결과", "성공 : ${response.body()}")
+
+                                        val jsonString = response.body()!!
+                                        val categoryAdapter = CategoryAdapter(requireActivity())
+
+                                        itemList.adapter = categoryAdapter
+                                        datas.apply{
+                                            datas.clear();
+                                            addAll(jsonString)
+                                            categoryAdapter.datas = datas
+                                            categoryAdapter.notifyDataSetChanged()
+                                        }
+
+
+                                    } else { // code == 400
+                                        Log.d("결과", "뭔가 잘못됐어 : ${response.raw()}")
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<List<ItemsByCat>>, t: Throwable) { // code == 500
+                                    // 실패 처리
+                                    Log.d("결과:", "실패 : $t")
+                                }
+                            })
+                        }
 
                         val jsonString = response.body()!!
                         val categoryAdapter = CategoryAdapter(requireActivity())

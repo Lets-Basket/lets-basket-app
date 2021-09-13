@@ -1,31 +1,18 @@
 package com.example.letsbasket
 
-import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
-import android.content.pm.Signature
-import android.location.LocationManager
-import android.os.Build
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 
 import com.example.letsbasket.categoryTab.CategoryTab
-import com.example.letsbasket.chattingTab.ChatRoomFragment
 import com.example.letsbasket.chattingTab.ChattingTab
 import com.example.letsbasket.homeTab.HomeTab
 import com.example.letsbasket.mypageTab.MypageTab
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_tab_button.view.*
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mContext : Context
