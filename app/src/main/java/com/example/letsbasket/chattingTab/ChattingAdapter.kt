@@ -44,6 +44,7 @@ class ChattingAdapter(private val context: Context): RecyclerView.Adapter<Chatti
             // 클릭 이벤트 추가
             itemView.setOnClickListener{
                 Intent(context, ChattingMsgActivity::class.java).apply {
+                    putExtra("roomId", item.room_id)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
             }

@@ -6,16 +6,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/recPlace"
+    <TextView
+        android:id="@+id/participant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:background="@drawable/btn_display"
-        android:text="위치 추천"
-        android:textColor="#273E89"
+        android:layout_marginVertical="5dp"
+        android:layout_marginTop="42dp"
+        android:textSize="18dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="박근영" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/post"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        app:layout_constraintTop_toBottomOf="@+id/participant"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/postImage"
+            android:layout_width="85dp"
+            android:layout_height="88dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/postTitle"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.246"
+            tools:text="행복한콩 샐러드 두부 모닝두부140g x 6개입 + 오리엔탈 드레싱 105g, 1세트" />
+
+        <TextView
+            android:id="@+id/postPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginTop="42dp"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postTitle"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="$$$$원" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDBDBD"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
@@ -28,7 +87,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recPlace"
+        app:layout_constraintTop_toBottomOf="@+id/post"
         tools:context=".Fragment.ChatMsgFragment"
         tools:listitem="@layout/custom_chat_msg" />
 
@@ -43,6 +102,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/recPlace"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_map"/>
 
         <EditText
             android:id="@+id/content_et"

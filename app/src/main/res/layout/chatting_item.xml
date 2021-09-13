@@ -38,7 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="5dp"
         android:layout_marginTop="42dp"
-        android:layout_marginEnd="236dp"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,9 +46,10 @@
         tools:text="$$$$원" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="#BDBDBD"/>
+        android:background="#BDBDBD"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

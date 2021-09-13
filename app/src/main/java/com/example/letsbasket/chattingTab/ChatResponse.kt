@@ -1,10 +1,10 @@
 package com.example.letsbasket.chattingTab
 
 data class ChatResponse(
-    val __v: Int,
-    val _id: String,
-    val post_id: PostId,
-    val room_id: String,
-    val user_number: Int,
-    val users: List<String>
+    var __v: Int,
+    var _id: String,
+    var post_id: PostId,
+    var room_id: String,
+    var user_number: Int,
+    var users: List<String>
 )
