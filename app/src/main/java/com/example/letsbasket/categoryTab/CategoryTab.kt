@@ -20,6 +20,7 @@ class CategoryTab : FragmentTab() {
         val btn1 = view.findViewById<Button>(R.id.btnCat1)
         val btn2 = view.findViewById<Button>(R.id.btnCat2)
         val btn3 = view.findViewById<Button>(R.id.btnCat3)
+        val btn4 = view.findViewById<Button>(R.id.btnCat4)
 
         btn1.setOnClickListener {
             val intent = Intent(getActivity(), CategoryActivity::class.java)
@@ -36,6 +37,12 @@ class CategoryTab : FragmentTab() {
         btn3.setOnClickListener {
             val intent = Intent(getActivity(), CategoryActivity::class.java)
             intent.putExtra("catNum", 3)
+            startActivity(intent)
+        }
+
+        btn4.setOnClickListener {
+            val intent = Intent(getActivity(), CategoryActivity::class.java)
+            intent.putExtra("catNum", 4)
             startActivity(intent)
         }
 
