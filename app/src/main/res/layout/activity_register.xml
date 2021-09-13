@@ -55,20 +55,6 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_studentnum" />
 
         <EditText
-            android:id="@+id/edit_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:hint="동네"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_major" />
-
-
-        <EditText
             android:id="@+id/edit_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +65,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_address" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_major" />
 
         <EditText
             android:id="@+id/edit_pw"
@@ -107,6 +93,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_pw" />
 
+
+        <Spinner
+            android:id="@+id/edit_address"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_phonenum" />
+
         <Button
             android:id="@+id/btn_register2"
             android:layout_width="wrap_content"
@@ -114,7 +112,7 @@
             android:layout_marginTop="40dp"
             android:text="회원가입"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_phonenum" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_address" />
 
     </LinearLayout>
 
