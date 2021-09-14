@@ -29,8 +29,8 @@ class LoginActivity : Activity() {
 
         var data = LoginData()
 
-        editId.text = Editable.Factory.getInstance().newEditable("choengha")
-        editPw.text = Editable.Factory.getInstance().newEditable("123456")
+//        editId.text = Editable.Factory.getInstance().newEditable("choengha")
+//        editPw.text = Editable.Factory.getInstance().newEditable("123456")
 
 
         btnLogin.setOnClickListener {

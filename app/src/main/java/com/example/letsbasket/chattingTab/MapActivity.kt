@@ -34,10 +34,10 @@ class MapActivity : Activity(), MapView.CurrentLocationEventListener,
         val mapViewContainer = map_view
         mapViewContainer.addView(mapView)
 
-//        val latitude = 37.546294647182776
-//        val longitude = 126.9673619657574
-        val latitude = 37.54411423022556
-        val longitude = 126.9673657452421
+        val latitude = 37.546294647182776
+        val longitude = 126.9673619657574
+//        val latitude = 37.54411423022556
+//        val longitude = 126.9673657452421
 
 
 
@@ -80,7 +80,7 @@ class MapActivity : Activity(), MapView.CurrentLocationEventListener,
 
         // 마커 표시
         val marker = MapPOIItem()
-        marker.itemName = "숙대소반"
+        marker.itemName = "베이글 팩토리"
         marker.tag = 0
         marker.mapPoint = MapPoint.mapPointWithGeoCoord(latitude, longitude)
         marker.markerType = MapPOIItem.MarkerType.BluePin // 기본으로 제공하는 BluePin 마커 모양.

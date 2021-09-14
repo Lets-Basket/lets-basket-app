@@ -49,36 +49,42 @@ class RegisterActivity : Activity() {
         major.text = Editable.Factory.getInstance().newEditable("ICT융합공학부")
 
         btn_register2.setOnClickListener{
-
+            Log.d("회원가입:", "눌림")
             val intent = Intent(this, LoginActivity::class.java)
-
-            //아이템 선택 리스너
-            dong.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
-
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    RData.dong = dong_data[position]
-                }
-            }
+//
+//            //아이템 선택 리스너
+//            dong.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//                override fun onNothingSelected(parent: AdapterView<*>?) {
+//
+//                }
+//
+//                override fun onItemSelected(
+//                    parent: AdapterView<*>?,
+//                    view: View?,
+//                    position: Int,
+//                    id: Long
+//                ) {
+//                    if (dong_data[position] == null) {
+//                        RData.dong = "청파동"
+//                    } else {
+//                        RData.dong = dong_data[position]
+//                    }
+//
+//                }
+//            }
 
             RData.favoritecategory = arrayOf(1, 2, 3)
             RData.studentcard = "imgurl"
             RData.name = name?.text.toString()
             RData.studentnum = Integer.parseInt(studentnum?.text.toString())
             RData.major = major?.text.toString()
-            //RData.dong = dong?.text.toString()
+            RData.dong = "청파동"
             RData.latitude = 37.545920
             RData.longtitude = 126.964629
             RData.id = id?.text.toString()
             RData.pw = pw?.text.toString()
             RData.phonenum = phonenum?.text.toString()
+//            RData.dong =
 
             RetrofitBuilder.api.register(RData).enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(
