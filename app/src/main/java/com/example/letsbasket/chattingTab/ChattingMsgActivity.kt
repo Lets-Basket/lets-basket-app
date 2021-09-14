@@ -17,9 +17,11 @@ import com.example.letsbasket.MapActivity
 import com.example.letsbasket.R
 import com.example.letsbasket.R.id.send_iv
 import com.example.letsbasket.categoryTab.ChatMsgAdapter
+import com.example.letsbasket.categoryTab.ChatMsgAdapter2
 import com.example.letsbasket.categoryTab.ChattingAdapter
 import com.example.letsbasket.login.RegisterRequest
 import com.example.letsbasket.manageToken.App
+import com.example.letsbasket.mypageTab.MypageResponse
 import com.example.letsbasket.network.RetrofitBuilder
 import kotlinx.android.synthetic.main.activity_chatting_tab.*
 import kotlinx.android.synthetic.main.activity_item_post.*
@@ -73,7 +75,41 @@ class ChattingMsgActivity : Activity() {
             }
         })
 
+        RetrofitBuilder.api.getMypage().enqueue(object : Callback<List<MypageResponse>> {
+            override fun onResponse(call: Call<List<MypageResponse>>, response: Response<List<MypageResponse>>) {
+                if(response.isSuccessful()) { // <--> response.code == 200
+                    Log.d("결과", "성공 : ${response.body()}")
 
+                    val data = response.body()!!
+
+
+
+                    if (data[0].name == "성청하") {
+
+                        chatData.date_tv2 = "2021-09-14"
+                        chatData.content_tv2 = "베이글 팩토리에서 만나요"
+
+                        val chatMshAdapter = ChatMsgAdapter2(this@ChattingMsgActivity)
+
+                        chat_msg_rv.adapter = chatMshAdapter
+                        datas.apply{
+                            addAll(listOf(chatData))
+                            chatMshAdapter.datas = datas
+                            chatMshAdapter.notifyDataSetChanged()
+                        }
+                    }
+
+
+                } else { // code == 400
+                    Log.d("결과!!!", "뭔가 잘못됐어 : ${response.raw()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<MypageResponse>>, t: Throwable) { // code == 500
+                // 실패 처리
+                Log.d("결과:", "실패 : $t")
+            }
+        })
 
         recPlaceBtn.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)

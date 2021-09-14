@@ -11,6 +11,7 @@ import com.example.letsbasket.login.LoginResponse
 import com.example.letsbasket.login.RegisterRequest
 import com.example.letsbasket.login.RegisterResponse
 import com.example.letsbasket.mypageTab.MypageData
+import com.example.letsbasket.mypageTab.MypageResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -74,6 +75,6 @@ interface ServiceApi {
     fun getChatContent(@Path("room_id") room_id: String): Call<ChatResponse>
 
     // 마이페이지
-    @GET("/api/rooms")
-    fun getMypage(): Call<List<ChatResponse>>
+    @GET("/api/users/mypage")
+    fun getMypage(): Call<List<MypageResponse>>
 }
