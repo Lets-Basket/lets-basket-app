@@ -72,4 +72,8 @@ interface ServiceApi {
     // 채팅방 상세
     @GET("/api/rooms/{room_id}")
     fun getChatContent(@Path("room_id") room_id: String): Call<ChatResponse>
+
+    // 마이페이지
+    @GET("/api/rooms")
+    fun getMypage(): Call<List<ChatResponse>>
 }

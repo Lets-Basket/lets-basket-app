@@ -8,12 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.letsbasket.FragmentTab
 import com.example.letsbasket.MapActivity
 import com.example.letsbasket.R
+import com.example.letsbasket.R.id.send_iv
+import com.example.letsbasket.categoryTab.ChatMsgAdapter
 import com.example.letsbasket.categoryTab.ChattingAdapter
+import com.example.letsbasket.login.RegisterRequest
+import com.example.letsbasket.manageToken.App
 import com.example.letsbasket.network.RetrofitBuilder
 import kotlinx.android.synthetic.main.activity_chatting_tab.*
 import kotlinx.android.synthetic.main.activity_item_post.*
@@ -25,14 +31,22 @@ import retrofit2.Response
 
 class ChattingMsgActivity : Activity() {
 
+    lateinit var chatMshAdapter: ChatMsgAdapter
+    val datas = mutableListOf<ChatMsgItem>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_chat_msg)
+
+        var chatData = ChatMsgItem()
 
         val roomId = intent.getStringExtra("roomId").toString()
         Log.d("결과", roomId)
 
         val recPlaceBtn = findViewById<ImageButton>(R.id.recPlace)
+        val content = findViewById<EditText>(R.id.content_et)
+        val send = findViewById<ImageView>(R.id.send_iv)
+
 
         RetrofitBuilder.api.getChatContent(roomId).enqueue(object : Callback<ChatResponse> {
             override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
@@ -60,9 +74,25 @@ class ChattingMsgActivity : Activity() {
         })
 
 
+
         recPlaceBtn.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
+        }
+
+        send.setOnClickListener{
+
+            chatData.date_tv2 = "2021-09-14"
+            chatData.content_tv2 = content?.text.toString()
+
+            val chatMshAdapter = ChatMsgAdapter(this)
+
+            chat_msg_rv.adapter = chatMshAdapter
+            datas.apply{
+                addAll(listOf(chatData))
+                chatMshAdapter.datas = datas
+                chatMshAdapter.notifyDataSetChanged()
+            }
         }
     }
 }
